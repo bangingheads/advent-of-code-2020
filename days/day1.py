@@ -1,19 +1,17 @@
-import sys
-
 data = open("day1.txt").read().splitlines()
-section = 2
 
-if section == 1:
+def part_one():
     for x in data:
         for y in data:
             if int(x) + int(y) == 2020:
-                print(x*y)
-                sys.exit()
+                return int(x)*int(y)
 
-elif section == 2:
+def part_two():
     for x in data:
         for y in data:
             for z in data:
                 if int(x) + int(y) + int(z) == 2020:
-                    print(x*y*z)
-                    sys.exit()
+                    return int(x)*int(y)*int(z)
+
+print(part_one())
+print(part_two())
