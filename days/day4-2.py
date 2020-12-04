@@ -57,15 +57,21 @@ def validate(inp):
 
 
 def validate_byr(inp):
-    return len(inp) == 4 and int(inp) >= 1920 and int(inp) <= 2002
+    if len(inp) == 4 and int(inp) >= 1920 and int(inp) <= 2002:
+        return True
+    return False
 
 
 def validate_iyr(inp):
-    return len(inp) == 4 and int(inp) >= 2010 and int(inp) <= 2020
+    if len(inp) == 4 and int(inp) >= 2010 and int(inp) <= 2020:
+        return True
+    return False
 
 
 def validate_eyr(inp):
-    return len(inp) == 4 and int(inp) >= 2020 and int(inp) <= 2030
+    if len(inp) == 4 and int(inp) >= 2020 and int(inp) <= 2030:
+        return True
+    return False
 
 
 def validate_hgt(inp):
@@ -82,15 +88,17 @@ def validate_hgt(inp):
 
 def validate_ecl(inp):
     valid = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
-    return inp in valid
+    if inp not in valid:
+        return False
+    return True
 
 
 def validate_hcl(inp):
-    return bool(re.fullmatch(r'#[0-9a-f]{6}', inp))
+    return bool(re.match(r'#[0-9a-f]{6}', inp))
 
 
 def validate_pid(inp):
-    return bool(re.fullmatch(r'[0-9]{9}', inp))
+    return bool(re.match(r'[0-9]{9}', inp))
 
 
 print(part_one())
