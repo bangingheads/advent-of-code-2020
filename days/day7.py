@@ -10,11 +10,10 @@ def part_one():
     contains_gold = []
     for line in data:
         bags.update({
-            line.split("contain")[0].strip().replace("bags", "bag"): [x.strip()[2:].replace(".", "").replace("bags", "bag") for x in line.split("contain")[1].split(",") if "no" not in x]
+            line.split("bag")[0].strip(): [x.split("bag")[0].strip()[2:] for x in line.split("contain")[1].split(",") if "no" not in x]
         })
         if "shiny gold" in line.split("contain")[1]:
-            contains_gold.append(line.split("contain")[
-                                 0].replace("bags", "bag").strip())
+            contains_gold.append(line.split("bag")[0].strip())
     get_all_bags(contains_gold)
     return len(total)
 
@@ -40,7 +39,7 @@ def get_all_bags(check_list):
 def part_two():
     for line in data:
         bags.update({
-            line.split("contain")[0].replace("bags", "").replace("bag", "").strip(): [x.replace(".", "").replace("bags", "").replace("bag", "").strip() for x in line.split("contain")[1].split(",") if "no" not in x]
+            line.split("bag")[0].strip(): [x.split("bag")[0].strip() for x in line.split("contain")[1].split(",") if "no" not in x]
         })
     return calculate_total(bags['shiny gold'])
 
