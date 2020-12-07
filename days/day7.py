@@ -7,6 +7,7 @@ total = set()
 def part_one():
     global bags
     global total
+    bags = {}
     contains_gold = []
     for line in data:
         bags.update({
@@ -37,6 +38,8 @@ def get_all_bags(check_list):
 
 
 def part_two():
+    global bags
+    bags = {}
     for line in data:
         bags.update({
             line.split("bag")[0].strip(): [x.split("bag")[0].strip() for x in line.split("contain")[1].split(",") if "no" not in x]
