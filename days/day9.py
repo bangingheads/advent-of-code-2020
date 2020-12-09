@@ -21,7 +21,6 @@ def part_one(preamble=25):
 
 def part_two():
     for i, line in enumerate(data):
-        line = int(line)
         if line < answer:
             test = recursive_add(i, line)
             if test != False:
